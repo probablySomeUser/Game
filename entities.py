@@ -19,6 +19,12 @@ class Entity():
     def distance(self,target:Entity):
         distance = abs(self.position[0]-target.position[0])+abs(self.position[1]-target.position[1])
         return distance
+    
+    def kill(self,combatants):
+        if self.HP <= 0 and len(combatants)>= 2 and self in combatants:
+            a=combatants.index(self)
+            del combatants[a]
+            print(self.name,'has died')
 
 
 class Player(Entity):
